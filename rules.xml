@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<ruleset name="sscf"
+         xmlns="http://pmd.sf.net/ruleset/1.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 http://pmd.sf.net/ruleset_xml_schema.xsd"
+         xsi:noNamespaceSchemaLocation="http://pmd.sf.net/ruleset_xml_schema.xsd">
+    <description>ruleset</description>
+    <!--
+        if表达式中的else分支并不是必须的。你可以重写条件，去掉else，这样代码更简单。
+        你可能在代码中就要使用return，或者把代码分成几个小的方法。对于更为简单的情况，可以直接用三元表达式。
+        -->
+    <!--<rule ref="rulesets/cleancode.xml/ElseExpression" />-->
+    <!-- 长参数列表表明一个新的对象需要被创建以包容众多参数。基本上，可以尝试分组参数。 -->
+    <rule ref="rulesets/codesize.xml/ExcessiveParameterList" />
+    <!-- 有太多字段的类可以考虑重新设计（可能是将一些信息打包为嵌套对象的方法）来减少字段。 -->
+    <rule ref="rulesets/codesize.xml/TooManyFields" />
+    <!-- @TODO 还有一个下划线变量检测需要引入 -->
+    <!-- 驼峰式命名函数名称 -->
+    <rule ref="rulesets/controversial.xml/CamelCaseMethodName" />
+    <!-- 驼峰式命名类名称 -->
+    <rule ref="rulesets/controversial.xml/CamelCaseClassName" />
+    <!-- 直接访问超级全局变量是一个很差的做法 -->
+    <rule ref="rulesets/controversial.xml/Superglobals" />
+    <!-- 方法名过短。 -->
+    <rule ref="rulesets/naming.xml/ShortMethodName" />
+    <!-- 构造函数方法不应该和封装的类有相同的名称，应参照PHP 5 __construct方法来命名。 -->
+    <rule ref="rulesets/naming.xml/ConstructorWithNameAsEnclosingClass" />
+    <!-- 类/接口常量必须用大写字母定义  -->
+    <rule ref="rulesets/naming.xml/ConstantNamingConventions" />
+    <!-- 返回值为布尔型而以'getX()'格式命名的方法。习惯上此类方法的命名格式是 'isX()' 或者 'hasX()' -->
+    <rule ref="rulesets/naming.xml/BooleanGetMethodName" />
+    <!-- 存在已声明或赋值的私有字段，但是却未使用。 -->
+    <rule ref="rulesets/unusedcode.xml/UnusedPrivateField" />
+    <!-- 存在已声明或赋值的局部变量，但是却未使用。 -->
+    <rule ref="rulesets/unusedcode.xml/UnusedLocalVariable" />
+    <!-- 存在已声明但未使用的私有方法。 -->
+    <rule ref="rulesets/unusedcode.xml/UnusedPrivateMethod" />
+
+    <!-- -->
+    <rule name="Underscore"
+          message = "变量未按照下划线命名 '{0}' line:{1}"
+          class="\App\CodeRuleSet\Underscore" >
+        <priority>3</priority>
+    </rule>
+</ruleset>

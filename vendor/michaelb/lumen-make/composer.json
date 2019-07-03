@@ -1,0 +1,20 @@
+{
+    "name": "michaelb/lumen-make",
+    "description": "Lumen make adds more make commands to lumen for jobs, controllers, middleware, etc.",
+    "type": "Lumen",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michael Bonds",
+            "email": "mbonds1219@gmail.com"
+        }
+    ],
+    "require": {
+      "laravel/lumen-framework": "~5.1"
+    },
+    "autoload": {
+      "psr-4": {
+        "MichaelB\\LumenMake\\": "src/"
+      }
+    }
+}
